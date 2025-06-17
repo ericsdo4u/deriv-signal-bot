@@ -2,3 +2,4 @@ websockets==12.0
 numpy
 requests
 python-dotenv
+aiohttp
