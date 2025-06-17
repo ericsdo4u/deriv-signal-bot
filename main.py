@@ -57,6 +57,7 @@ async def deriv_price_stream():
         last_rsi = 50
 
         while True:
+            global last_alert_time
             msg = await ws.recv()
             data = json.loads(msg)
 
@@ -102,7 +103,6 @@ async def deriv_price_stream():
                 print(f"Price: {price:.2f} | RSI(5m): {rsi_5m:.2f} | RSI(1m): {rsi_1m:.2f} | Jump: {rsi_jump:.2f} | EMA{EMA_FAST}: {ema_fast:.2f} | EMA{EMA_SLOW}: {ema_slow:.2f} | MACD: {macd:.2f if macd else 0} | Signal: {signal}")
 
                 if should_alert and cooldown_ok:
-                    global last_alert_time
                     send_telegram_alert(alert_text)
                     last_alert_time = time.time()
 
