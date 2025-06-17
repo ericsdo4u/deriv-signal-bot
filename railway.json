@@ -1,0 +1,12 @@
+{
+  "build": {
+    "command": "pip install -r requirements.txt"
+  },
+  "start": "python main.py",
+  "crons": [
+    {
+      "command": "python main.py",
+      "schedule": "*/5 * * * *"
+    }
+  ]
+}
