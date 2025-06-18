@@ -108,5 +108,5 @@ async def deriv_price_stream():
                 log_signal(price, rsi_5m, ema_fast, ema_slow, signal, macd, signal_line, volume_5m)
 
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(deriv_price_stream())
-
